@@ -1,0 +1,1201 @@
+/* Process Page Styles */
+.process-app {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 2rem;
+}
+
+.process-container {
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.page-header h1 {
+  color: white;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.navigation {
+  margin-top: 1rem;
+}
+
+.nav-button {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.nav-button:hover {
+  background: white;
+  color: #667eea;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 3rem;
+  padding: 2rem 0;
+}
+
+.process-item {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  animation: processEntrance 0.8s ease-out forwards;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.process-item:nth-child(odd) { animation-delay: 0.1s; }
+.process-item:nth-child(even) { animation-delay: 0.3s; }
+
+.process-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+}
+
+.process-item h3 {
+  color: #2d3436;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: 700;
+}
+
+@keyframes processEntrance {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Process 1: Horizontal Timeline */
+.timeline-horizontal {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  overflow-x: auto;
+  padding: 1rem 0;
+}
+
+.timeline-step {
+  min-width: 200px;
+  position: relative;
+  animation: timelineSlide 2s ease-in-out infinite;
+}
+
+.timeline-step .step-number {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin: 0 auto 1rem;
+  animation: numberPulse 3s ease-in-out infinite;
+}
+
+.timeline-step .step-connector {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  animation: connectorGlow 4s ease-in-out infinite;
+}
+
+.timeline-step:last-child .step-connector {
+  display: none;
+}
+
+.timeline-step .step-content {
+  text-align: center;
+}
+
+.timeline-step .step-icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 0.5rem;
+  animation: iconBounce 2s ease-in-out infinite;
+}
+
+.timeline-step h4 {
+  color: #2d3436;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-step p {
+  color: #636e72;
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+@keyframes timelineSlide {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes numberPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+@keyframes connectorGlow {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+@keyframes iconBounce {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-3px); }
+}
+
+/* Process 2: Vertical Flow */
+.flow-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.flow-step {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  animation: flowSlide 3s ease-in-out infinite;
+}
+
+.flow-step:nth-child(even) {
+  animation-delay: 1.5s;
+}
+
+.step-circle {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #00b894, #00cec9);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  animation: circleRotate 4s linear infinite;
+}
+
+.step-circle .step-icon {
+  font-size: 1.5rem;
+}
+
+.step-circle .step-num {
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: white;
+}
+
+.step-details h4 {
+  color: #2d3436;
+  margin-bottom: 0.5rem;
+}
+
+.step-details p {
+  color: #636e72;
+  font-size: 0.9rem;
+}
+
+.flow-arrow {
+  font-size: 2rem;
+  color: #667eea;
+  text-align: center;
+  animation: arrowPulse 2s ease-in-out infinite;
+}
+
+@keyframes flowSlide {
+  0%, 100% { transform: translateX(0px); }
+  50% { transform: translateX(5px); }
+}
+
+@keyframes circleRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes arrowPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+
+/* Process 4: Kanban Board */
+.kanban-board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.kanban-column {
+  background: #f8f9fa;
+  border-radius: 10px;
+  padding: 1rem;
+  animation: kanbanSlide 4s ease-in-out infinite;
+}
+
+.kanban-column:nth-child(2) { animation-delay: 1s; }
+.kanban-column:nth-child(3) { animation-delay: 2s; }
+.kanban-column:nth-child(4) { animation-delay: 3s; }
+
+.kanban-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #667eea;
+}
+
+.kanban-icon {
+  font-size: 1.2rem;
+}
+
+.kanban-header h4 {
+  color: #2d3436;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.kanban-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.kanban-card {
+  background: white;
+  padding: 0.75rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  color: #636e72;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  animation: cardFloat 2s ease-in-out infinite;
+}
+
+.kanban-card:nth-child(even) {
+  animation-delay: 1s;
+}
+
+@keyframes kanbanSlide {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-3px); }
+}
+
+@keyframes cardFloat {
+  0%, 100% { transform: translateX(0px); }
+  50% { transform: translateX(2px); }
+}
+
+/* Process 5: Progress Bar Steps */
+.progress-steps {
+  position: relative;
+}
+
+.progress-bar {
+  height: 4px;
+  background: #e9ecef;
+  border-radius: 2px;
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  width: 0%;
+  animation: progressFill 5s ease-in-out infinite;
+}
+
+.steps-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.progress-step {
+  text-align: center;
+  animation: progressStepPulse 3s ease-in-out infinite;
+}
+
+.progress-step:nth-child(2) { animation-delay: 0.5s; }
+.progress-step:nth-child(3) { animation-delay: 1s; }
+.progress-step:nth-child(4) { animation-delay: 1.5s; }
+
+.progress-circle {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  font-size: 1.2rem;
+  animation: progressCircleRotate 4s linear infinite;
+}
+
+.progress-label h4 {
+  color: #2d3436;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.progress-label p {
+  color: #636e72;
+  font-size: 0.7rem;
+}
+
+@keyframes progressFill {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+
+@keyframes progressStepPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes progressCircleRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Process 6: Accordion Steps */
+.accordion-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.accordion-item {
+  border: 1px solid #e9ecef;
+  border-radius: 10px;
+  overflow: hidden;
+  animation: accordionExpand 4s ease-in-out infinite;
+}
+
+.accordion-item:nth-child(2) { animation-delay: 1s; }
+.accordion-item:nth-child(3) { animation-delay: 2s; }
+.accordion-item:nth-child(4) { animation-delay: 3s; }
+
+.accordion-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, #74b9ff, #0984e3);
+  color: white;
+  cursor: pointer;
+}
+
+.accordion-number {
+  width: 30px;
+  height: 30px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.accordion-icon {
+  font-size: 1.2rem;
+}
+
+.accordion-header h4 {
+  color: white;
+  margin: 0;
+  font-size: 1rem;
+}
+
+.accordion-content {
+  padding: 1rem;
+  background: white;
+}
+
+.accordion-content p {
+  color: #636e72;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.accordion-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.accordion-content li {
+  color: #2d3436;
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+  padding-left: 1rem;
+  position: relative;
+}
+
+.accordion-content li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #00b894;
+  font-weight: bold;
+}
+
+@keyframes accordionExpand {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+}
+
+/* Process 7: Zigzag Flow */
+.zigzag-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: relative;
+}
+
+.zigzag-step {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  animation: zigzagSlide 3s ease-in-out infinite;
+}
+
+.zigzag-step.right {
+  flex-direction: row-reverse;
+  animation-delay: 1.5s;
+}
+
+.zigzag-content {
+  flex: 1;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #fd79a8, #fdcb6e);
+  border-radius: 15px;
+  color: white;
+  text-align: center;
+}
+
+.zigzag-icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.zigzag-content h4 {
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.zigzag-content p {
+  color: rgba(255,255,255,0.9);
+  font-size: 0.9rem;
+}
+
+.zigzag-number {
+  width: 60px;
+  height: 60px;
+  background: #2d3436;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  animation: zigzagNumberSpin 4s linear infinite;
+}
+
+@keyframes zigzagSlide {
+  0%, 100% { transform: translateX(0px); }
+  50% { transform: translateX(10px); }
+}
+
+@keyframes zigzagNumberSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Process 8: Card Carousel */
+.carousel-container {
+  overflow: hidden;
+  padding: 1rem 0;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 1rem;
+  animation: carouselSlide 8s linear infinite;
+}
+
+.carousel-card {
+  min-width: 200px;
+  background: linear-gradient(135deg, #a29bfe, #6c5ce7);
+  color: white;
+  padding: 1.5rem;
+  border-radius: 15px;
+  text-align: center;
+  animation: cardHover 3s ease-in-out infinite;
+}
+
+.carousel-card:nth-child(2) { animation-delay: 0.5s; }
+.carousel-card:nth-child(3) { animation-delay: 1s; }
+.carousel-card:nth-child(4) { animation-delay: 1.5s; }
+
+.carousel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.carousel-number {
+  background: rgba(255,255,255,0.2);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.carousel-icon {
+  font-size: 1.5rem;
+}
+
+.carousel-card h4 {
+  color: white;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.carousel-card p {
+  color: rgba(255,255,255,0.9);
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.carousel-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.feature-tag {
+  background: rgba(255,255,255,0.2);
+  padding: 0.25rem 0.5rem;
+  border-radius: 15px;
+  font-size: 0.7rem;
+}
+
+@keyframes carouselSlide {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-25%); }
+}
+
+@keyframes cardHover {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
+/* Process 9: Funnel Visualization */
+.funnel-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.funnel-step {
+  background: linear-gradient(135deg, #00cec9, #00b894);
+  color: white;
+  padding: 1rem;
+  border-radius: 10px;
+  position: relative;
+  animation: funnelPulse 3s ease-in-out infinite;
+}
+
+.funnel-step:nth-child(2) { animation-delay: 0.5s; }
+.funnel-step:nth-child(3) { animation-delay: 1s; }
+.funnel-step:nth-child(4) { animation-delay: 1.5s; }
+
+.funnel-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.funnel-icon {
+  font-size: 1.5rem;
+}
+
+.funnel-content h4 {
+  color: white;
+  flex: 1;
+  text-align: center;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.funnel-number {
+  background: rgba(255,255,255,0.2);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+@keyframes funnelPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* Process 10: Hexagon Grid */
+.hexagon-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  justify-items: center;
+}
+
+.hexagon-step {
+  animation: hexagonFloat 4s ease-in-out infinite;
+}
+
+.hexagon-step:nth-child(2) { animation-delay: 1s; }
+.hexagon-step:nth-child(3) { animation-delay: 2s; }
+.hexagon-step:nth-child(4) { animation-delay: 3s; }
+
+.hexagon {
+  width: 120px;
+  height: 104px;
+  background: linear-gradient(135deg, #fd79a8, #fdcb6e);
+  position: relative;
+  margin: 52px 0;
+  border-radius: 10px;
+  transform: rotate(30deg);
+}
+
+.hexagon:before,
+.hexagon:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  border-left: 60px solid transparent;
+  border-right: 60px solid transparent;
+}
+
+.hexagon:before {
+  bottom: 100%;
+  border-bottom: 52px solid;
+  border-bottom-color: inherit;
+}
+
+.hexagon:after {
+  top: 100%;
+  border-top: 52px solid;
+  border-top-color: inherit;
+}
+
+.hexagon-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-30deg);
+  text-align: center;
+  color: white;
+}
+
+.hex-number {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.hex-icon {
+  display: block;
+  font-size: 1.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.hexagon-content h5 {
+  font-size: 0.7rem;
+  margin: 0;
+  color: white;
+}
+
+@keyframes hexagonFloat {
+  0%, 100% { transform: translateY(0px) rotate(30deg); }
+  50% { transform: translateY(-10px) rotate(30deg); }
+}
+
+/* Process 11: Spiral Timeline */
+.spiral-container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+}
+
+.spiral-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  animation: spiralCenterSpin 6s linear infinite;
+}
+
+.spiral-step {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80px;
+  height: 80px;
+  margin: -40px 0 0 -40px;
+  animation: spiralOrbit 8s linear infinite;
+}
+
+.spiral-step:nth-child(2) { animation-delay: -2s; }
+.spiral-step:nth-child(3) { animation-delay: -4s; }
+.spiral-step:nth-child(4) { animation-delay: -6s; }
+
+.spiral-content {
+  background: linear-gradient(135deg, #ff7675, #fd79a8);
+  color: white;
+  padding: 0.5rem;
+  border-radius: 10px;
+  text-align: center;
+  animation: spiralContentFloat 3s ease-in-out infinite;
+}
+
+.spiral-icon {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.spiral-content h5 {
+  font-size: 0.6rem;
+  margin: 0 0 0.25rem 0;
+  color: white;
+}
+
+.spiral-number {
+  background: rgba(255,255,255,0.2);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+@keyframes spiralCenterSpin {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes spiralOrbit {
+  from { transform: rotate(0deg) translateX(120px) rotate(0deg); }
+  to { transform: rotate(360deg) translateX(120px) rotate(-360deg); }
+}
+
+@keyframes spiralContentFloat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+/* Process 12: Metro Map */
+.metro-map {
+  position: relative;
+  height: 150px;
+  padding: 2rem 0;
+}
+
+.metro-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  border-radius: 2px;
+  animation: metroLinePulse 4s ease-in-out infinite;
+}
+
+.metro-station {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  animation: stationPulse 3s ease-in-out infinite;
+}
+
+.metro-station:nth-child(3) { animation-delay: 0.5s; }
+.metro-station:nth-child(4) { animation-delay: 1s; }
+.metro-station:nth-child(5) { animation-delay: 1.5s; }
+
+.station-dot {
+  width: 20px;
+  height: 20px;
+  background: #2d3436;
+  border: 4px solid white;
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+  box-shadow: 0 0 0 2px #667eea;
+  animation: dotPulse 2s ease-in-out infinite;
+}
+
+.station-info {
+  text-align: center;
+  background: white;
+  padding: 0.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  min-width: 100px;
+}
+
+.station-icon {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 0.25rem;
+}
+
+.station-info h5 {
+  color: #2d3436;
+  font-size: 0.7rem;
+  margin: 0 0 0.25rem 0;
+}
+
+.station-number {
+  background: #667eea;
+  color: white;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+@keyframes metroLinePulse {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+@keyframes stationPulse {
+  0%, 100% { transform: translateY(-50%) scale(1); }
+  50% { transform: translateY(-50%) scale(1.05); }
+}
+
+@keyframes dotPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+/* Process 13: Pyramid Steps */
+.pyramid-container {
+  position: relative;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.pyramid-level {
+  background: linear-gradient(135deg, #00b894, #00cec9);
+  color: white;
+  padding: 1rem;
+  border-radius: 10px;
+  position: absolute;
+  animation: pyramidFloat 4s ease-in-out infinite;
+}
+
+.pyramid-level:nth-child(2) { animation-delay: 0.5s; }
+.pyramid-level:nth-child(3) { animation-delay: 1s; }
+.pyramid-level:nth-child(4) { animation-delay: 1.5s; }
+
+.pyramid-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.pyramid-icon {
+  font-size: 1.5rem;
+}
+
+.pyramid-content h4 {
+  color: white;
+  flex: 1;
+  text-align: center;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.pyramid-number {
+  background: rgba(255,255,255,0.2);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+@keyframes pyramidFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
+/* Process 14: Flowchart Diagram */
+.flowchart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.flowchart-node {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  animation: flowchartPulse 3s ease-in-out infinite;
+}
+
+.flowchart-node:nth-child(2) { animation-delay: 0.5s; }
+.flowchart-node:nth-child(3) { animation-delay: 1s; }
+.flowchart-node:nth-child(4) { animation-delay: 1.5s; }
+
+.node-shape {
+  background: linear-gradient(135deg, #fd79a8, #fdcb6e);
+  color: white;
+  padding: 1rem;
+  border-radius: 15px;
+  text-align: center;
+  min-width: 100px;
+  position: relative;
+  animation: nodeFloat 2s ease-in-out infinite;
+}
+
+.node-icon {
+  display: block;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.node-shape h5 {
+  color: white;
+  font-size: 0.8rem;
+  margin: 0 0 0.5rem 0;
+}
+
+.node-number {
+  background: rgba(255,255,255,0.2);
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.flowchart-connector {
+  font-size: 2rem;
+  color: #667eea;
+  animation: connectorPulse 2s ease-in-out infinite;
+}
+
+@keyframes flowchartPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes nodeFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-3px); }
+}
+
+@keyframes connectorPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+/* Process 15: Interactive Dashboard */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.dashboard-widget {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border-radius: 15px;
+  padding: 1.5rem;
+  animation: widgetPulse 4s ease-in-out infinite;
+}
+
+.dashboard-widget:nth-child(2) { animation-delay: 1s; }
+.dashboard-widget:nth-child(3) { animation-delay: 2s; }
+.dashboard-widget:nth-child(4) { animation-delay: 3s; }
+
+.widget-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.widget-number {
+  background: rgba(255,255,255,0.2);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.widget-icon {
+  font-size: 2rem;
+}
+
+.widget-content h4 {
+  color: white;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.widget-content p {
+  color: rgba(255,255,255,0.9);
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.widget-metrics {
+  display: flex;
+  gap: 1rem;
+}
+
+.metric {
+  text-align: center;
+}
+
+.metric-value {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+}
+
+.metric-label {
+  display: block;
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.8);
+}
+
+@keyframes widgetPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .process-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .process-item {
+    padding: 1.5rem;
+  }
+  
+  .page-header h1 {
+    font-size: 2rem;
+  }
+  
+  .timeline-horizontal {
+    flex-direction: column;
+  }
+  
+  .kanban-board {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .steps-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .process-app {
+    padding: 1rem;
+  }
+  
+  .process-item {
+    padding: 1rem;
+  }
+  
+  .page-header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .kanban-board,
+  .steps-container,
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
